@@ -221,3 +221,14 @@ def hello(): # Bir fonksiyon oluşturduk.
 
 docker cp app.py <containerid>:/app 
 docker commit --change='WORKDIR /app' --change='CMD ["flask","run","--host=0.0.0.0","--port=80"]' 194 flaskdemo
+
+
+git clone https://github.com/ercanesee/dockercourse.git
+  
+cd dockercourse/
+docker pull mcr.microsoft.com/dotnet/aspnet:7.0
+docker run -d --name aspdemo mcr.microsoft.com/dotnet/aspnet:7.0 mkdir app
+docker cp . 03b:/app
+ocker commit --change='WORKDIR /app' --change='CMD ["dotnet","tbb.dll"]' 03b aspnetdemo
+docker images
+docker run -d -p 8787:80 --name aspnet01 aspnetdemo
