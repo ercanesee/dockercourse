@@ -1,0 +1,7 @@
+C:\Users\EE\Desktop\TBBGitDemo\Docker Course\tbb\out\tbb.exe
+C:\Users\EE\Desktop\TBBGitDemo\Docker Course\tbb\out\appsettings.Development.json
+C:\Users\EE\Desktop\TBBGitDemo\Docker Course\tbb\out\appsettings.json
+C:\Users\EE\Desktop\TBBGitDemo\Docker Course\tbb\out\tbb.dll
+C:\Users\EE\Desktop\TBBGitDemo\Docker Course\tbb\out\tbb.deps.json
+C:\Users\EE\Desktop\TBBGitDemo\Docker Course\tbb\out\tbb.runtimeconfig.json
+C:\Users\EE\Desktop\TBBGitDemo\Docker Course\tbb\out\tbb.pdb
