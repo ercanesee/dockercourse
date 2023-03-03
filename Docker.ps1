@@ -170,11 +170,16 @@ mdkir app
 cd app
 
 vi app.js
-"var http = require('http') http.createServer(onRequest).listen(8888);
-console.log('Server has started'); function onRequest(request, response){
-  response.writeHead(200);
-  response.write('Hello Noders');
-  response.end();
+"
+var http = require('http')
+
+http.createServer(onRequest).listen(8888);
+console.log('Server has started');
+
+function onRequest(request, response){
+  response.writeHead(200);
+  response.write('Hello Noders');
+  response.end();
 }
 "
 node app.js
@@ -189,3 +194,6 @@ docker commit --change='CMD ["node","/app/app.js"]' <containerid> <newimagename>
 
 
 
+#imajları silmek için 
+
+docker rmi <imageid>
