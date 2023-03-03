@@ -240,3 +240,37 @@ docker login harbor.ercanese.com
 docker tag mercedesapp harbor.ercanese.com/hcm/mercedesapp:v1
 docker push harbor.ercanese.com/hcm/mercedesapp:v1
 
+
+docker build -t nodedemo .
+
+
+docker network ls
+docker network create --subnet 172.16.0.0/24 --gateway 172.16.0.1 demo
+
+docker run -d -p 8909:80 --network demo --ip 172.16.0.100 .\.git
+
+#container ayaga kalkarken host üzerinde bir mount işlemi yapmak için kullanırız.
+docker run -d -p 9193:80 -v /opt/demo/mvc11:/data --network demo --name mvc11 mvcdockerfile:v2
+
+#/var/lib/docker/volumes altında bir volume olsuturur. 
+docker volume create demo
+#olusturulan volumu baglamak için aşağıdaki şekikde bir cli kodu kullanırız.
+docker run -d -p 9193:80 -v demos:/data --network demo --name mvc11 mvcdockerfile:v2
+
+#default bridge ipsini değiştirmek için.
+#docker deamon.json dosyasında bip alanı konfigüre edilmedilir.
+
+#aynı networkte olan containerlar birbirlerine isimden erişebilir.
+#bir adet 172.99.0.0 subnetinde network olusutrun ve o networkte bir node yada python mvc uygulaması ayaga kaldırırken birde
+#/opt alında bir data klasörü oluşturun ve bunuda containerin /data klasörüne baglayın.
+
+
+docker network ls
+docker network create --help
+docker network create --subnet 172.99.0.0/16 --gateway 172.99.0.1 demo1
+docker network ls
+docker inspect dc17
+mkdir /opt/data
+docker images
+docker run -d -p 4444:80 --name mvcdemos01 --network demo1 --ip 172.99.0.10 -v /opt/data:/data mvcdockerfile:v2 
+
