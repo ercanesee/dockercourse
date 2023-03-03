@@ -197,3 +197,27 @@ docker commit --change='CMD ["node","/app/app.js"]' <containerid> <newimagename>
 #imajları silmek için 
 
 docker rmi <imageid>
+
+
+
+docker cp app.js f6dd089cafdc:/app/app.js
+docker commit --change='CMD ["node","/app/app.js"]' f6dd089cafdc demonode
+
+
+docker pull python
+
+docker run -d --name pyt01 python /bin/bash -c "pip install flask && mkdir app"
+
+vi app.py
+
+from flask import Flask
+
+app = Flask(__name__) # app değişkenizimizin Flask olduğunu belirttik.
+
+@app.route("/") # Endpoint imizi tanımladık.
+def hello(): # Bir fonksiyon oluşturduk.
+    return "Hello World" # Sitemizde görmek istediğimiz şeyi return ettik.
+
+
+docker cp app.py <containerid>:/app 
+docker commit --change='WORKDIR /app' --change='CMD ["flask","run","--host=0.0.0.0","--port=80"]' 194 flaskdemo
