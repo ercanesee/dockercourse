@@ -229,6 +229,14 @@ cd dockercourse/
 docker pull mcr.microsoft.com/dotnet/aspnet:7.0
 docker run -d --name aspdemo mcr.microsoft.com/dotnet/aspnet:7.0 mkdir app
 docker cp . 03b:/app
-ocker commit --change='WORKDIR /app' --change='CMD ["dotnet","tbb.dll"]' 03b aspnetdemo
+docker commit --change='WORKDIR /app' --change='CMD ["dotnet","tbb.dll"]' 03b aspnetdemo
 docker images
 docker run -d -p 8787:80 --name aspnet01 aspnetdemo
+
+
+
+#repoya göre imajı taglemek için
+docker login harbor.ercanese.com
+docker tag mercedesapp harbor.ercanese.com/hcm/mercedesapp:v1
+docker push harbor.ercanese.com/hcm/mercedesapp:v1
+
